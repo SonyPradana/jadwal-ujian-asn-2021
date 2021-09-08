@@ -4,7 +4,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use GuzzleHttp\Client;
 
-$instansi = 'semarang';
+$instansi = $argv[1] ?? 'semarang';
 
 $client = new Client([
     'base_uri' => 'https://data-sscasn.bkn.go.id',
@@ -71,6 +71,7 @@ do {
         if ($json['recordsTotal'] > 1) {
             print_r($json['data']);
             $found = true;
+            break;
         }
         echo "Not found...\n";
         sleep(60 * 5);

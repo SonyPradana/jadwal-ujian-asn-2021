@@ -1,6 +1,7 @@
 const axios = require('axios');
+const qs = require('qs');
 
-getData = (instansi) => axios.get('https://data-sscasn.bkn.go.id/ujian/list', {
+const getData = (instansi) => axios.get('https://data-sscasn.bkn.go.id/ujian/list', {
   params: {
     'draw':	7,
     'columns[0][data]':	'instansi',
@@ -47,16 +48,25 @@ getData = (instansi) => axios.get('https://data-sscasn.bkn.go.id/ujian/list', {
     'search[regex]':	false,
     '_':	Date.now()
   },
+  paramsSerializer: params => {
+    return qs.stringify(params)
+  }
 })
 .then(function (response) {
-  console.log(response);
+  if (response.status === 200 ) {
+    console.log(response.data);
+    if (response.data.recordsTotal > 0) {
+      // tell client jadwal founded
+    }
+  }
 })
 .catch(function (error) {
   console.log(error);
 })
 .then(function () {
-  // always executed
+  console.log('work')
 });  
 
-// get data
-getData('semarang')
+// get data and parse cli if avilabe
+const myArgs = process.argv.slice(2);
+getData(myArgs[0] ?? 'semarang')

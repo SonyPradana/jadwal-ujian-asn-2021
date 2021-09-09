@@ -1,0 +1,32 @@
+{
+  "name": "jadwal-ujian-asn-2021",
+  "version": "0.2.0",
+  "author": "sonypradana",
+  "license": "MIT",
+  "description": "ambil data dari bkn untuk jadwal ujian asn",
+  "keywords": [
+    "fetch",
+    "data",
+    "asn",
+    "bkn",
+    "males",
+    "refresh",
+    "halaman"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SonyPradana/jadwal-ujian-asn-2021.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SonyPradana/jadwal-ujian-asn-2021/issues"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "qs": "^6.10.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "away": "node index.js"
+  }
+}

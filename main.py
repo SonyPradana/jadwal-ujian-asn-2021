@@ -12,4 +12,4 @@ if len(sys.argv) > 1:
 else:
     instansi = 'semarang'
 
-print(cari(instansi)['data'])
+print(json.dumps(cari(instansi)['data'], indent=4, sort_keys=True))

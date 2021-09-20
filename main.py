@@ -27,10 +27,10 @@ if len(sys.argv) > 2:
 		while find == False:
 			res = cari(instansi)
 			if res['recordsFiltered'] > 0:				
-                print(json.dumps(res['data'], indent=4, sort_keys=True))
+				console.print(res['data'])				
 				find = True
 			else:
 				print("not found")
 				time.sleep(1.0)
 else:
-    print(json.dumps(cari(instansi)['data'], indent=4, sort_keys=True))
+	console.print(cari(instansi)['data'])
